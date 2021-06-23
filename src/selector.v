@@ -8,7 +8,9 @@ module signalSelect (
     output reg signed [31:0] output_0,
     output reg signed [31:0] output_1,
     output reg signed [31:0] output_2,
-    output reg signed [31:0] output_3
+    output reg signed [31:0] output_3,
+
+    output reg [1:0] q_flag
 );
 
   reg [3:0] counter;
@@ -32,7 +34,7 @@ module signalSelect (
 
 
 // This always part controls signal counter. 
-  always @ ( negedge clk or posedge reset ) begin
+  always @ ( negedge clk  or posedge reset) begin
     if ( reset )
       counter <= 4'b1111;
     else if (counter == 4'b1111)
@@ -41,7 +43,8 @@ module signalSelect (
       counter <= counter + 4'b0001;
   end
 
-  always @(posedge clk or posedge reset)begin
+  always @(posedge clk)begin
+
     case(counter)
       4'b0000: R0  <= data_in_1;
       4'b0001: R1  <= data_in_1;
@@ -62,7 +65,7 @@ module signalSelect (
     endcase
   end
 
-always @ ( negedge clk or posedge reset ) begin
+always @ ( negedge clk  ) begin
     case ( counter )
       4'b1100: output_0  <= R0;
       4'b1101: output_0  <=  R1;
@@ -71,7 +74,7 @@ always @ ( negedge clk or posedge reset ) begin
     endcase
 end
     
-always @ ( negedge clk or posedge reset ) begin
+always @ ( negedge clk ) begin
     case ( counter )
       4'b1100: output_1 <= R4;
       4'b1101: output_1 <=  R5;
@@ -80,7 +83,7 @@ always @ ( negedge clk or posedge reset ) begin
     endcase
 end
 
-always @ ( negedge clk or posedge reset) begin
+always @ ( negedge clk ) begin
     case ( counter )
       4'b1100: output_2  <= R8;
       4'b1101: output_2 <=  R9;
@@ -89,12 +92,22 @@ always @ ( negedge clk or posedge reset) begin
     endcase
 end
 
-always @ ( negedge clk or posedge reset ) begin
+always @ ( negedge clk  ) begin
     case ( counter )
       4'b1100: output_3 <= R12;
       4'b1101: output_3 <=  R13;
       4'b1110: output_3 <=  R14;
       4'b1111: output_3 <=  R15;
+    endcase
+
+end
+
+always @ ( output_0  ) begin
+    case ( counter )
+      4'b1100: q_flag <= 2'b00;
+      4'b1101: q_flag <= 2'b01;
+      4'b1110: q_flag <= 2'b10;
+      4'b1111: q_flag <= 2'b11;
     endcase
 
 end

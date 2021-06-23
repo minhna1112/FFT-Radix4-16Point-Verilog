@@ -43,7 +43,7 @@ module signalSelect (
       counter <= counter + 4'b0001;
   end
 
-  always @(posedge clk)begin
+  always @(counter)begin
 
     case(counter)
       4'b0000: R0  <= data_in_1;
@@ -65,7 +65,7 @@ module signalSelect (
     endcase
   end
 
-always @ ( negedge clk  ) begin
+always @ ( posedge clk  ) begin
     case ( counter )
       4'b1100: output_0  <= R0;
       4'b1101: output_0  <=  R1;
@@ -74,7 +74,7 @@ always @ ( negedge clk  ) begin
     endcase
 end
     
-always @ ( negedge clk ) begin
+always @ ( posedge clk ) begin
     case ( counter )
       4'b1100: output_1 <= R4;
       4'b1101: output_1 <=  R5;
@@ -83,7 +83,7 @@ always @ ( negedge clk ) begin
     endcase
 end
 
-always @ ( negedge clk ) begin
+always @ ( posedge clk ) begin
     case ( counter )
       4'b1100: output_2  <= R8;
       4'b1101: output_2 <=  R9;
@@ -92,7 +92,7 @@ always @ ( negedge clk ) begin
     endcase
 end
 
-always @ ( negedge clk  ) begin
+always @ ( posedge clk  ) begin
     case ( counter )
       4'b1100: output_3 <= R12;
       4'b1101: output_3 <=  R13;

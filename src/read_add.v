@@ -24,6 +24,7 @@ assign c = tmp[32:1];
 
 endmodule
 
+//Test bench
 module testRealAdder32;
     reg signed [31:0] a, b;
 

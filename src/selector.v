@@ -65,7 +65,7 @@ module signalSelect (
     endcase
   end
 
-always @ ( posedge clk  ) begin
+always @ ( counter  ) begin
     case ( counter )
       4'b1100: output_0  <= R0;
       4'b1101: output_0  <=  R1;
@@ -74,7 +74,7 @@ always @ ( posedge clk  ) begin
     endcase
 end
     
-always @ ( posedge clk ) begin
+always @ ( counter ) begin
     case ( counter )
       4'b1100: output_1 <= R4;
       4'b1101: output_1 <=  R5;
@@ -83,7 +83,7 @@ always @ ( posedge clk ) begin
     endcase
 end
 
-always @ ( posedge clk ) begin
+always @ ( counter ) begin
     case ( counter )
       4'b1100: output_2  <= R8;
       4'b1101: output_2 <=  R9;
@@ -92,15 +92,16 @@ always @ ( posedge clk ) begin
     endcase
 end
 
-always @ ( posedge clk  ) begin
+always @ ( counter  ) begin
     case ( counter )
-      4'b1100: output_3 <= R12;
-      4'b1101: output_3 <=  R13;
-      4'b1110: output_3 <=  R14;
-      4'b1111: output_3 <=  R15;
+      4'b1100: output_3 <= data_in_1;
+      4'b1101: output_3 <=  data_in_1;
+      4'b1110: output_3 <=  data_in_1;
+      
+      4'b1111: output_3 <=  data_in_1;
     endcase
 
-end
+end 
 
 always @ ( output_0  ) begin
     case ( counter )

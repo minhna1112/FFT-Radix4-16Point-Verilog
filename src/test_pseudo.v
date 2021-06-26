@@ -1,6 +1,6 @@
 `timescale 1ns/1ns;
 
-module TBF_2;
+module Tpseu;
 
 reg signed [31:0] in_data_real;
 reg signed [31:0] in_data_im;

@@ -1,5 +1,3 @@
-`timescale 1ns / 1ns
-
 module Multi_Sing_float(
 	input [31:0] num1,
 	input [31:0] num2,

@@ -113,6 +113,4 @@ always @ ( output_0  ) begin
 
 end
 
-
-    
 endmodule

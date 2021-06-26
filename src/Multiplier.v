@@ -1,5 +1,3 @@
-`timescale 1ns / 1ns
-
 module Multiplier #(parameter N=8)(
 	input [N-1:0] y,	//multiplier
 	input [N-1:0] x,	//multiplicand

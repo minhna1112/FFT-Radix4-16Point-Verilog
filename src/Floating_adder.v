@@ -1,6 +1,3 @@
-`timescale 1ns / 1ns
-
-
 module Floating_adder(
     input wire [31:0] a,
     input wire [31:0] b,

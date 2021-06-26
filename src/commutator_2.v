@@ -39,10 +39,10 @@ always @(posedge clk ) begin
     if (mux_1_out == 2'b00)
         counter_2 <= 3'b000;
     else
-        counter_2 = counter_2 + 2'b001;
+        counter_2 = counter_2 + 3'b001;
 end
   
-always @(mux_1_out)
+always @(counter_2)
 begin
     case(mux_1_out)
       2'b00: R0  <= data_in_0;
@@ -52,7 +52,7 @@ begin
     endcase
 end
 
-always @(mux_1_out)
+always @(counter_2)
 begin
     case(mux_1_out)
       2'b00: R4  <= data_in_1;
@@ -62,7 +62,7 @@ begin
     endcase
 end
 
-always @(mux_1_out)
+always @(counter_2)
 begin
     case(mux_1_out)
       2'b00: R8  <= data_in_2;
@@ -72,7 +72,7 @@ begin
     endcase
 end
 
-always @(mux_1_out)
+always @(counter_2)
 begin
     case(mux_1_out)
       2'b00: R12  <= data_in_3;

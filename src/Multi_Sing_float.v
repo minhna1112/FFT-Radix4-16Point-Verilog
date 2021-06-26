@@ -1,22 +1,5 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Created By : Y.U.P De Silva
-// 
-// Create Date:    16:53:42 08/09/2014 
-// Design Name: 
-// Module Name:    Multi_Sing_float 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+`timescale 1ns / 1ns
+
 module Multi_Sing_float(
 	input [31:0] num1,
 	input [31:0] num2,

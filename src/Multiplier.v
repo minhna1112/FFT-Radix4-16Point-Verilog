@@ -1,22 +1,5 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Engineer: Udara Piumal (udara28) Y.U.P De Silva
-// 
-// Create Date:    14:59:13 08/09/2014 
-// Design Name: 	 Extended Booth Encoded Multiplier
-// Module Name:    Multiplier 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: unsigned combinational multiplier using modified booth algorithm
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+`timescale 1ns / 1ns
+
 module Multiplier #(parameter N=8)(
 	input [N-1:0] y,	//multiplier
 	input [N-1:0] x,	//multiplicand

@@ -1,12 +1,12 @@
-`timescale 1ns / 1ps
+`timescale 1ns / 1ns
 
 
 module Floating_adder(
-    input [31:0] a,
-    input [31:0] b,
+    input wire [31:0] a,
+    input wire [31:0] b,
     input ctrl,	// 0- add , 1-subtract
 	 input enable,
-    output [31:0] ans
+    output wire [31:0] ans
     );
 	
 	reg [31:0] val_b,val_s; //bigger and smaller
@@ -68,8 +68,18 @@ module Floating_adder(
 			result[31] = (a[31] & is_greater) | ( (~is_greater) & (ctrl ^ b[31]) );
 			//Add symmetrical case
 			if(a[30:0] == b[30:0]) begin
-				result = 32'b0;
+				if (ctrl) begin
+					if (a[31]==b[31]) begin
+						result = 32'b0;		
+					end
+				end
+				else begin
+					if (a[31]!=b[31]) begin
+						result = 32'b0;		
+					end
+				end
 			end
+
 		end else
 			result = 0;
 	end

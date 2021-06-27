@@ -26,27 +26,3 @@ Floating_adder s5(tmp_5, tmp_6, 1'b1, 1'b1, c_im); //(L+M)*X-(X-Y)*L
 
 endmodule
 
-module testCPMul;
-
-reg signed [31:0] a_real, b_real, a_im, b_im ;
-wire signed [31:0]  c_real, c_im;
-
-complexMul a1(a_real, a_im, b_real, b_im, c_real, c_im);
-
-    
-initial begin
-    a_real = 32'b01000000000110011001100110011010; //2.4
-    a_im   = 32'b01000000011011001100110011001101; //3.7
-    
-    b_im =   32'b01000000000110011001100110011010; //2.4
-    b_real = 32'b01000000011011001100110011001101; //3.7
-
-    //b_real = 32'b00111111111100110011001100110011; //1.9
-    //b_im   = 32'b00111111001110101110000101001000; // 0.73
-end
-
-initial begin
-    $monitor("c= %b + %b i ", c_real, c_im);
-end
-
-endmodule

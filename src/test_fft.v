@@ -1,5 +1,3 @@
-`timescale 1ns/1ns;
-
 module TB_FFT;
 
 reg signed [31:0] in_data_real;
